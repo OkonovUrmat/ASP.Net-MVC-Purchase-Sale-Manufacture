@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Poluchenie>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            poluchenie_id
+        </th>
+        <th>
+            summa
+        </th>
+        <th>
+            procent
+        </th>
+        <th>
+            peni
+        </th>
+        <th>
+     year
+        </th>
+        <th>
+            data
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in ViewBag.Poluchenies)
+    {
+        <tr>
+            <td>
+                @item.poluchenie_id
+            </td>
+            <td>
+                @item.summa
+            </td>
+            <td>
+                @item.procent
+            </td>
+            <td>
+                @item.peni
+            </td>
+            <td>
+                @item.year
+            </td>
+            <td>
+                @item.data
+            </td>
+   
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.poluchenie_id }) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.poluchenie_id })
+            </td>
+        </tr>
+    }
+
+</table>

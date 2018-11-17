@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище SRSModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="bank_id" />
+    </Key>
+    <Property Name="bank_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="summary" Type="money" />
+    <Property Name="precent" Type="money" />
+    <Property Name="penni" Type="money" />
+    <Property Name="datebank" Type="date" />
+    <Property Name="foryears" Type="float" />
+  </EntityType>
+  <EntityType Name="Bilets">
+    <Key>
+      <PropertyRef Name="bilet_id" />
+    </Key>
+    <Property Name="bilet_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomer_bileta" Type="int" />
+  </EntityType>
+  <EntityType Name="Budget">
+    <Key>
+      <PropertyRef Name="budg_ID" />
+    </Key>
+    <Property Name="budg_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="summa_budget" Type="int" />
+  </EntityType>
+  <EntityType Name="Doljnost">
+    <Key>
+      <PropertyRef Name="dolj_ID" />
+    </Key>
+    <Property Name="dolj_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="doljnosts" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Edinic_izmer">
+    <Key>
+      <PropertyRef Name="ez_ID" />
+    </Key>
+    <Property Name="ez_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Gotov_product">
+    <Key>
+      <PropertyRef Name="gp_ID" />
+    </Key>
+    <Property Name="gp_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="ed_izmer" Type="tinyint" />
+    <Property Name="summa" Type="float" />
+    <Property Name="kol_vo" Type="float" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="ingr_ID" />
+    </Key>
+    <Property Name="ingr_ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="produciya" Type="tinyint" />
+    <Property Name="syrie" Type="smallint" />
+    <Property Name="kol_vo" Type="float" />
+  </EntityType>
+  <EntityType Name="Operacii">
+    <Key>
+      <PropertyRef Name="operaci_id" />
+    </Key>
+    <Property Name="operaci_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="operac_name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Oplata">
+    <Key>
+      <PropertyRef Name="oplata_id" />
+    </Key>
+    <Property Name="oplata_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oplata_vid" Type="int" />
+    <Property Name="summa" Type="float" />
+  </EntityType>
+  <EntityType Name="Poluchenie">
+    <Key>
+      <PropertyRef Name="poluchenie_id" />
+    </Key>
+    <Property Name="poluchenie_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="summa" Type="money" />
+    <Property Name="procent" Type="float" />
+    <Property Name="peni" Type="float" />
+    <Property Name="year" Type="int" />
+    <Property Name="data" Type="date" />
+  </EntityType>
+  <EntityType Name="Procent">
+    <Key>
+      <PropertyRef Name="procent_id" />
+    </Key>
+    <Property Name="procent_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Procent" Type="float" />
+    <Property Name="Procent_zarplaty" Type="float" />
+    <Property Name="Procent_banka" Type="float" />
+  </EntityType>
+  <EntityType Name="Prodaj_Product">
+    <Key>
+      <PropertyRef Name="prodaj_ID" />
+    </Key>
+    <Property Name="prodaj_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product" Type="tinyint" />
+    <Property Name="kol_vo" Type="float" />
+    <Property Name="summa" Type="float" />
+    <Property Name="data" Type="date" />
+    <Property Name="sotrudnik" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Proizvodstvo">
+    <Key>
+      <PropertyRef Name="proizvodstvo_ID" />
+    </Key>
+    <Property Name="proizvodstvo_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product" Type="tinyint" />
+    <Property Name="kol_vo" Type="float" />
+    <Property Name="data" Type="date" />
+    <Property Name="sotrudnik" Type="smallint" />
+  </EntityType>
+  <EntityType Name="recept">
+    <Key>
+      <PropertyRef Name="recept_id" />
+    </Key>
+    <Property Name="recept_id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product" Type="varchar" MaxLength="50" />
+    <Property Name="syrie" Type="varchar" MaxLength="50" />
+    <Property Name="kol-vo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="sotr_ID" />
+    </Key>
+    <Property Name="sotr_ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIO" Type="varchar" MaxLength="50" />
+    <Property Name="doljnost" Type="tinyint" />
+    <Property Name="oklad" Type="int" />
+    <Property Name="adress" Type="varchar" MaxLength="50" />
+    <Property Name="telephone" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Syrie">
+    <Key>
+      <PropertyRef Name="syrie_id" />
+    </Key>
+    <Property Name="syrie_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="ed_izmer" Type="tinyint" />
+    <Property Name="summa" Type="float" />
+    <Property Name="kol_vo" Type="float" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Table_1">
+    <Key>
+      <PropertyRef Name="syrie_id" />
+    </Key>
+    <Property Name="syrie_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="ed_izmer" Type="tinyint" />
+    <Property Name="summa" Type="float" />
+    <Property Name="kol_vo" Type="float" />
+  </EntityType>
+  <EntityType Name="Usersa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="int" />
+  </EntityType>
+  <EntityType Name="Vyplaty">
+    <Key>
+      <PropertyRef Name="vyplaty_id" />
+    </Key>
+    <Property Name="vyplaty_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="summa_kredita" Type="money" />
+    <Property Name="procent" Type="float" />
+    <Property Name="peni" Type="float" />
+    <Property Name="data" Type="date" />
+    <Property Name="ostatok" Type="float" />
+  </EntityType>
+  <EntityType Name="Zakupka_syrya">
+    <Key>
+      <PropertyRef Name="zakup_ID" />
+    </Key>
+    <Property Name="zakup_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="syrie" Type="smallint" />
+    <Property Name="kol_vo" Type="int" />
+    <Property Name="summa" Type="int" />
+    <Property Name="data" Type="date" />
+    <Property Name="sotrudnik" Type="smallint" />
+  </EntityType>
+  <EntityType Name="Zarplata">
+    <Key>
+      <PropertyRef Name="id_zarplaty" />
+    </Key>
+    <Property Name="id_zarplaty" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_sotrudnika" Type="smallint" />
+    <Property Name="mesyac" Type="int" />
+    <Property Name="god" Type="int" />
+    <Property Name="oklad" Type="money" />
+    <Property Name="procent_oklada" Type="float" />
+    <Property Name="obwaya_summa" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "SRS.dbo.Asp" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Asp">
+          <Property Name="data" Type="date" />
+          <Property Name="sotrudnik" Type="smallint" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "SRS.dbo.sCHITANIE" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="sCHITANIE">
+          <Property Name="sotrudnik" Type="smallint" />
+          <Property Name="Кол-во" Type="int" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SRS.dbo.БД" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="БД">
+    <Key>
+      <PropertyRef Name="ingr_ID" />
+    </Key>
+    <Property Name="Готовый продукт" Type="varchar" MaxLength="50" />
+    <Property Name="Сырье" Type="varchar" MaxLength="50" />
+    <Property Name="Количество" Type="float" />
+    <Property Name="ingr_ID" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Gotov_product_Edinic_izmer">
+    <End Role="Edinic_izmer" Type="Self.Edinic_izmer" Multiplicity="0..1" />
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Edinic_izmer">
+        <PropertyRef Name="ez_ID" />
+      </Principal>
+      <Dependent Role="Gotov_product">
+        <PropertyRef Name="ed_izmer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredient_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="produciya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredient_Syrie1">
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="0..1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syrie">
+        <PropertyRef Name="syrie_id" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="syrie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodaj_Product_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Prodaj_Product" Type="Self.Prodaj_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Prodaj_Product">
+        <PropertyRef Name="product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodaj_Product_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Prodaj_Product" Type="Self.Prodaj_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Prodaj_Product">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvodstvo_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Proizvodstvo">
+        <PropertyRef Name="product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvodstvo_Sotrudnik1">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Proizvodstvo">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sotrudnik_Doljnost">
+    <End Role="Doljnost" Type="Self.Doljnost" Multiplicity="0..1" />
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doljnost">
+        <PropertyRef Name="dolj_ID" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="doljnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Syrie_Edinic_izmer">
+    <End Role="Edinic_izmer" Type="Self.Edinic_izmer" Multiplicity="0..1" />
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Edinic_izmer">
+        <PropertyRef Name="ez_ID" />
+      </Principal>
+      <Dependent Role="Syrie">
+        <PropertyRef Name="ed_izmer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakupka_syrya_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Zakupka_syrya" Type="Self.Zakupka_syrya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Zakupka_syrya">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakupka_syrya_Syrie">
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="0..1" />
+    <End Role="Zakupka_syrya" Type="Self.Zakupka_syrya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syrie">
+        <PropertyRef Name="syrie_id" />
+      </Principal>
+      <Dependent Role="Zakupka_syrya">
+        <PropertyRef Name="syrie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zarplata_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Zarplata" Type="Self.Zarplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Zarplata">
+        <PropertyRef Name="id_sotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="banki" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="Ingredient_Gotov" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Otkat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="i" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Procent_zarplaty" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmpId" Type="int" Mode="In" />
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="srs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="spisok" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище SRSModelContainer">
+    <EntitySet Name="bank" EntityType="Self.bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bilets" EntityType="Self.Bilets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Budget" EntityType="Self.Budget" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doljnost" EntityType="Self.Doljnost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Edinic_izmer" EntityType="Self.Edinic_izmer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gotov_product" EntityType="Self.Gotov_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operacii" EntityType="Self.Operacii" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oplata" EntityType="Self.Oplata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Poluchenie" EntityType="Self.Poluchenie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Procent" EntityType="Self.Procent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prodaj_Product" EntityType="Self.Prodaj_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proizvodstvo" EntityType="Self.Proizvodstvo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="recept" EntityType="Self.recept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Syrie" EntityType="Self.Syrie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usersa" EntityType="Self.Usersa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vyplaty" EntityType="Self.Vyplaty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakupka_syrya" EntityType="Self.Zakupka_syrya" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zarplata" EntityType="Self.Zarplata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="БД" EntityType="Self.БД" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [БД].[Готовый продукт] AS [Готовый продукт], 
+    [БД].[Сырье] AS [Сырье], 
+    [БД].[Количество] AS [Количество], 
+    [БД].[ingr_ID] AS [ingr_ID]
+    FROM [dbo].[БД] AS [БД]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Gotov_product_Edinic_izmer" Association="Self.FK_Gotov_product_Edinic_izmer">
+      <End Role="Edinic_izmer" EntitySet="Edinic_izmer" />
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredient_Gotov_product" Association="Self.FK_Ingredient_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredient_Syrie1" Association="Self.FK_Ingredient_Syrie1">
+      <End Role="Syrie" EntitySet="Syrie" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodaj_Product_Gotov_product" Association="Self.FK_Prodaj_Product_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Prodaj_Product" EntitySet="Prodaj_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodaj_Product_Sotrudnik" Association="Self.FK_Prodaj_Product_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Prodaj_Product" EntitySet="Prodaj_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvodstvo_Gotov_product" Association="Self.FK_Proizvodstvo_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvodstvo_Sotrudnik1" Association="Self.FK_Proizvodstvo_Sotrudnik1">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sotrudnik_Doljnost" Association="Self.FK_Sotrudnik_Doljnost">
+      <End Role="Doljnost" EntitySet="Doljnost" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Syrie_Edinic_izmer" Association="Self.FK_Syrie_Edinic_izmer">
+      <End Role="Edinic_izmer" EntitySet="Edinic_izmer" />
+      <End Role="Syrie" EntitySet="Syrie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakupka_syrya_Sotrudnik" Association="Self.FK_Zakupka_syrya_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zakupka_syrya" EntitySet="Zakupka_syrya" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakupka_syrya_Syrie" Association="Self.FK_Zakupka_syrya_Syrie">
+      <End Role="Syrie" EntitySet="Syrie" />
+      <End Role="Zakupka_syrya" EntitySet="Zakupka_syrya" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zarplata_Sotrudnik" Association="Self.FK_Zarplata_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zarplata" EntitySet="Zarplata" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bank">
+    <Key>
+      <PropertyRef Name="bank_id" />
+    </Key>
+    <Property Name="bank_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="summary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="precent" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="penni" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="datebank" Type="DateTime" Precision="0" />
+    <Property Name="foryears" Type="Double" />
+  </EntityType>
+  <EntityType Name="Bilets">
+    <Key>
+      <PropertyRef Name="bilet_id" />
+    </Key>
+    <Property Name="bilet_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nomer_bileta" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Budget">
+    <Key>
+      <PropertyRef Name="budg_ID" />
+    </Key>
+    <Property Name="budg_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="summa_budget" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Doljnost">
+    <Key>
+      <PropertyRef Name="dolj_ID" />
+    </Key>
+    <Property Name="dolj_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="doljnosts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Doljnost" FromRole="Doljnost" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="Edinic_izmer">
+    <Key>
+      <PropertyRef Name="ez_ID" />
+    </Key>
+    <Property Name="ez_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Gotov_product" Relationship="Self.FK_Gotov_product_Edinic_izmer" FromRole="Edinic_izmer" ToRole="Gotov_product" />
+    <NavigationProperty Name="Syrie" Relationship="Self.FK_Syrie_Edinic_izmer" FromRole="Edinic_izmer" ToRole="Syrie" />
+  </EntityType>
+  <EntityType Name="Gotov_product">
+    <Key>
+      <PropertyRef Name="gp_ID" />
+    </Key>
+    <Property Name="gp_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ed_izmer" Type="Byte" />
+    <Property Name="summa" Type="Double" />
+    <Property Name="kol_vo" Type="Double" />
+    <NavigationProperty Name="Edinic_izmer" Relationship="Self.FK_Gotov_product_Edinic_izmer" FromRole="Gotov_product" ToRole="Edinic_izmer" />
+    <NavigationProperty Name="Ingredient" Relationship="Self.FK_Ingredient_Gotov_product" FromRole="Gotov_product" ToRole="Ingredient" />
+    <NavigationProperty Name="Prodaj_Product" Relationship="Self.FK_Prodaj_Product_Gotov_product" FromRole="Gotov_product" ToRole="Prodaj_Product" />
+    <NavigationProperty Name="Proizvodstvo" Relationship="Self.FK_Proizvodstvo_Gotov_product" FromRole="Gotov_product" ToRole="Proizvodstvo" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="ingr_ID" />
+    </Key>
+    <Property Name="ingr_ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="produciya" Type="Byte" />
+    <Property Name="syrie" Type="Int16" />
+    <Property Name="kol_vo" Type="Double" />
+    <NavigationProperty Name="Gotov_product" Relationship="Self.FK_Ingredient_Gotov_product" FromRole="Ingredient" ToRole="Gotov_product" />
+    <NavigationProperty Name="Syrie1" Relationship="Self.FK_Ingredient_Syrie1" FromRole="Ingredient" ToRole="Syrie" />
+  </EntityType>
+  <EntityType Name="Operacii">
+    <Key>
+      <PropertyRef Name="operaci_id" />
+    </Key>
+    <Property Name="operaci_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="operac_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Oplata">
+    <Key>
+      <PropertyRef Name="oplata_id" />
+    </Key>
+    <Property Name="oplata_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="oplata_vid" Type="Int32" />
+    <Property Name="summa" Type="Double" />
+  </EntityType>
+  <EntityType Name="Poluchenie">
+    <Key>
+      <PropertyRef Name="poluchenie_id" />
+    </Key>
+    <Property Name="poluchenie_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="summa" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="procent" Type="Double" />
+    <Property Name="peni" Type="Double" />
+    <Property Name="year" Type="Int32" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Procent">
+    <Key>
+      <PropertyRef Name="procent_id" />
+    </Key>
+    <Property Name="procent_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Procent1" Type="Double" />
+    <Property Name="Procent_zarplaty" Type="Double" />
+    <Property Name="Procent_banka" Type="Double" />
+  </EntityType>
+  <EntityType Name="Prodaj_Product">
+    <Key>
+      <PropertyRef Name="prodaj_ID" />
+    </Key>
+    <Property Name="prodaj_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product" Type="Byte" />
+    <Property Name="kol_vo" Type="Double" />
+    <Property Name="summa" Type="Double" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="sotrudnik" Type="Int16" />
+    <NavigationProperty Name="Gotov_product" Relationship="Self.FK_Prodaj_Product_Gotov_product" FromRole="Prodaj_Product" ToRole="Gotov_product" />
+    <NavigationProperty Name="Sotrudnik1" Relationship="Self.FK_Prodaj_Product_Sotrudnik" FromRole="Prodaj_Product" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="Proizvodstvo">
+    <Key>
+      <PropertyRef Name="proizvodstvo_ID" />
+    </Key>
+    <Property Name="proizvodstvo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product" Type="Byte" />
+    <Property Name="kol_vo" Type="Double" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="sotrudnik" Type="Int16" />
+    <NavigationProperty Name="Gotov_product" Relationship="Self.FK_Proizvodstvo_Gotov_product" FromRole="Proizvodstvo" ToRole="Gotov_product" />
+    <NavigationProperty Name="Sotrudnik1" Relationship="Self.FK_Proizvodstvo_Sotrudnik1" FromRole="Proizvodstvo" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="recept">
+    <Key>
+      <PropertyRef Name="recept_id" />
+    </Key>
+    <Property Name="recept_id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="syrie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="kol_vo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="sotr_ID" />
+    </Key>
+    <Property Name="sotr_ID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="doljnost" Type="Byte" />
+    <Property Name="oklad" Type="Int32" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Doljnost1" Relationship="Self.FK_Sotrudnik_Doljnost" FromRole="Sotrudnik" ToRole="Doljnost" />
+    <NavigationProperty Name="Prodaj_Product" Relationship="Self.FK_Prodaj_Product_Sotrudnik" FromRole="Sotrudnik" ToRole="Prodaj_Product" />
+    <NavigationProperty Name="Proizvodstvo" Relationship="Self.FK_Proizvodstvo_Sotrudnik1" FromRole="Sotrudnik" ToRole="Proizvodstvo" />
+    <NavigationProperty Name="Zakupka_syrya" Relationship="Self.FK_Zakupka_syrya_Sotrudnik" FromRole="Sotrudnik" ToRole="Zakupka_syrya" />
+    <NavigationProperty Name="Zarplata" Relationship="Self.FK_Zarplata_Sotrudnik" FromRole="Sotrudnik" ToRole="Zarplata" />
+  </EntityType>
+  <EntityType Name="Syrie">
+    <Key>
+      <PropertyRef Name="syrie_id" />
+    </Key>
+    <Property Name="syrie_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ed_izmer" Type="Byte" />
+    <Property Name="summa" Type="Double" />
+    <Property Name="kol_vo" Type="Double" />
+    <NavigationProperty Name="Edinic_izmer" Relationship="Self.FK_Syrie_Edinic_izmer" FromRole="Syrie" ToRole="Edinic_izmer" />
+    <NavigationProperty Name="Ingredient" Relationship="Self.FK_Ingredient_Syrie1" FromRole="Syrie" ToRole="Ingredient" />
+    <NavigationProperty Name="Zakupka_syrya" Relationship="Self.FK_Zakupka_syrya_Syrie" FromRole="Syrie" ToRole="Zakupka_syrya" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Table_1">
+    <Key>
+      <PropertyRef Name="syrie_id" />
+    </Key>
+    <Property Name="syrie_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ed_izmer" Type="Byte" />
+    <Property Name="summa" Type="Double" />
+    <Property Name="kol_vo" Type="Double" />
+  </EntityType>
+  <EntityType Name="Usersa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Vyplaty">
+    <Key>
+      <PropertyRef Name="vyplaty_id" />
+    </Key>
+    <Property Name="vyplaty_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="summa_kredita" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="procent" Type="Double" />
+    <Property Name="peni" Type="Double" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="ostatok" Type="Double" />
+  </EntityType>
+  <EntityType Name="Zakupka_syrya">
+    <Key>
+      <PropertyRef Name="zakup_ID" />
+    </Key>
+    <Property Name="zakup_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="syrie" Type="Int16" />
+    <Property Name="kol_vo" Type="Int32" />
+    <Property Name="summa" Type="Int32" />
+    <Property Name="data" Type="DateTime" Precision="0" />
+    <Property Name="sotrudnik" Type="Int16" />
+    <NavigationProperty Name="Sotrudnik1" Relationship="Self.FK_Zakupka_syrya_Sotrudnik" FromRole="Zakupka_syrya" ToRole="Sotrudnik" />
+    <NavigationProperty Name="Syrie1" Relationship="Self.FK_Zakupka_syrya_Syrie" FromRole="Zakupka_syrya" ToRole="Syrie" />
+  </EntityType>
+  <EntityType Name="Zarplata">
+    <Key>
+      <PropertyRef Name="id_zarplaty" />
+    </Key>
+    <Property Name="id_zarplaty" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_sotrudnika" Type="Int16" />
+    <Property Name="mesyac" Type="Int32" />
+    <Property Name="god" Type="Int32" />
+    <Property Name="oklad" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="procent_oklada" Type="Double" />
+    <Property Name="obwaya_summa" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Zarplata_Sotrudnik" FromRole="Zarplata" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="БД">
+    <Key>
+      <PropertyRef Name="ingr_ID" />
+    </Key>
+    <Property Name="Готовый_продукт" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Сырье" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Количество" Type="Double" />
+    <Property Name="ingr_ID" Type="Byte" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Sotrudnik_Doljnost">
+    <End Role="Doljnost" Type="Self.Doljnost" Multiplicity="0..1" />
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doljnost">
+        <PropertyRef Name="dolj_ID" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="doljnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gotov_product_Edinic_izmer">
+    <End Role="Edinic_izmer" Type="Self.Edinic_izmer" Multiplicity="0..1" />
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Edinic_izmer">
+        <PropertyRef Name="ez_ID" />
+      </Principal>
+      <Dependent Role="Gotov_product">
+        <PropertyRef Name="ed_izmer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Syrie_Edinic_izmer">
+    <End Role="Edinic_izmer" Type="Self.Edinic_izmer" Multiplicity="0..1" />
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Edinic_izmer">
+        <PropertyRef Name="ez_ID" />
+      </Principal>
+      <Dependent Role="Syrie">
+        <PropertyRef Name="ed_izmer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredient_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="produciya" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodaj_Product_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Prodaj_Product" Type="Self.Prodaj_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Prodaj_Product">
+        <PropertyRef Name="product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvodstvo_Gotov_product">
+    <End Role="Gotov_product" Type="Self.Gotov_product" Multiplicity="0..1" />
+    <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gotov_product">
+        <PropertyRef Name="gp_ID" />
+      </Principal>
+      <Dependent Role="Proizvodstvo">
+        <PropertyRef Name="product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ingredient_Syrie1">
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="0..1" />
+    <End Role="Ingredient" Type="Self.Ingredient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syrie">
+        <PropertyRef Name="syrie_id" />
+      </Principal>
+      <Dependent Role="Ingredient">
+        <PropertyRef Name="syrie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prodaj_Product_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Prodaj_Product" Type="Self.Prodaj_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Prodaj_Product">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Proizvodstvo_Sotrudnik1">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Proizvodstvo" Type="Self.Proizvodstvo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Proizvodstvo">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakupka_syrya_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Zakupka_syrya" Type="Self.Zakupka_syrya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Zakupka_syrya">
+        <PropertyRef Name="sotrudnik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zarplata_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Zarplata" Type="Self.Zarplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="sotr_ID" />
+      </Principal>
+      <Dependent Role="Zarplata">
+        <PropertyRef Name="id_sotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakupka_syrya_Syrie">
+    <End Role="Syrie" Type="Self.Syrie" Multiplicity="0..1" />
+    <End Role="Zakupka_syrya" Type="Self.Zakupka_syrya" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Syrie">
+        <PropertyRef Name="syrie_id" />
+      </Principal>
+      <Dependent Role="Zakupka_syrya">
+        <PropertyRef Name="syrie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SRSEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bank" EntityType="Self.bank" />
+    <EntitySet Name="Bilets" EntityType="Self.Bilets" />
+    <EntitySet Name="Budget" EntityType="Self.Budget" />
+    <EntitySet Name="Doljnost" EntityType="Self.Doljnost" />
+    <EntitySet Name="Edinic_izmer" EntityType="Self.Edinic_izmer" />
+    <EntitySet Name="Gotov_product" EntityType="Self.Gotov_product" />
+    <EntitySet Name="Ingredient" EntityType="Self.Ingredient" />
+    <EntitySet Name="Operacii" EntityType="Self.Operacii" />
+    <EntitySet Name="Oplata" EntityType="Self.Oplata" />
+    <EntitySet Name="Poluchenie" EntityType="Self.Poluchenie" />
+    <EntitySet Name="Procent" EntityType="Self.Procent" />
+    <EntitySet Name="Prodaj_Product" EntityType="Self.Prodaj_Product" />
+    <EntitySet Name="Proizvodstvo" EntityType="Self.Proizvodstvo" />
+    <EntitySet Name="recept" EntityType="Self.recept" />
+    <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
+    <EntitySet Name="Syrie" EntityType="Self.Syrie" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+    <EntitySet Name="Usersa" EntityType="Self.Usersa" />
+    <EntitySet Name="Vyplaty" EntityType="Self.Vyplaty" />
+    <EntitySet Name="Zakupka_syrya" EntityType="Self.Zakupka_syrya" />
+    <EntitySet Name="Zarplata" EntityType="Self.Zarplata" />
+    <EntitySet Name="БД" EntityType="Self.БД" />
+    <AssociationSet Name="FK_Sotrudnik_Doljnost" Association="Self.FK_Sotrudnik_Doljnost">
+      <End Role="Doljnost" EntitySet="Doljnost" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gotov_product_Edinic_izmer" Association="Self.FK_Gotov_product_Edinic_izmer">
+      <End Role="Edinic_izmer" EntitySet="Edinic_izmer" />
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Syrie_Edinic_izmer" Association="Self.FK_Syrie_Edinic_izmer">
+      <End Role="Edinic_izmer" EntitySet="Edinic_izmer" />
+      <End Role="Syrie" EntitySet="Syrie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredient_Gotov_product" Association="Self.FK_Ingredient_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodaj_Product_Gotov_product" Association="Self.FK_Prodaj_Product_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Prodaj_Product" EntitySet="Prodaj_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvodstvo_Gotov_product" Association="Self.FK_Proizvodstvo_Gotov_product">
+      <End Role="Gotov_product" EntitySet="Gotov_product" />
+      <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ingredient_Syrie1" Association="Self.FK_Ingredient_Syrie1">
+      <End Role="Syrie" EntitySet="Syrie" />
+      <End Role="Ingredient" EntitySet="Ingredient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prodaj_Product_Sotrudnik" Association="Self.FK_Prodaj_Product_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Prodaj_Product" EntitySet="Prodaj_Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Proizvodstvo_Sotrudnik1" Association="Self.FK_Proizvodstvo_Sotrudnik1">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Proizvodstvo" EntitySet="Proizvodstvo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakupka_syrya_Sotrudnik" Association="Self.FK_Zakupka_syrya_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zakupka_syrya" EntitySet="Zakupka_syrya" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zarplata_Sotrudnik" Association="Self.FK_Zarplata_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zarplata" EntitySet="Zarplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakupka_syrya_Syrie" Association="Self.FK_Zakupka_syrya_Syrie">
+      <End Role="Syrie" EntitySet="Syrie" />
+      <End Role="Zakupka_syrya" EntitySet="Zakupka_syrya" />
+    </AssociationSet>
+    <FunctionImport Name="banki">
+      <Parameter Name="date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Ingredient_Gotov" ReturnType="Collection(SRSModel.Ingredient_Gotov_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Otkat">
+      <Parameter Name="i" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Procent_zarplaty">
+      <Parameter Name="EmpId" Mode="In" Type="Int32" />
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SRSModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SRSModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="srs" ReturnType="Collection(SRSModel.srs_Result)">
+      <Parameter Name="spisok" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Ingredient_Gotov_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Product" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="kol_vo" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="srs_Result">
+    <Property Type="Byte" Name="gp_ID" Nullable="false" />
+    <Property Type="String" Name="Наименование_продукта" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="На_сумму_продукта" Nullable="true" />
+    <Property Type="Double" Name="Количество_на_складе" Nullable="true" />
+    <Property Type="String" Name="Производство_одного_вида_данной_продукции_необходимо_сырье" Nullable="true" MaxLength="50" />
+    <Property Type="Int16" Name="id_syrie" Nullable="true" />
+    <Property Type="Double" Name="Количество" Nullable="true" />
+    <Property Type="Double" Name="Количество_сырья_на_складе" Nullable="true" />
+    <Property Type="Double" Name="На_сумму" Nullable="true" />
+    <Property Type="Int32" Name="Budget" Nullable="true" />
+    <Property Type="Double" Name="Александр" Nullable="true" />
+    <Property Type="Double" Name="Процент" Nullable="true" />
+  </ComplexType>
+</Schema>

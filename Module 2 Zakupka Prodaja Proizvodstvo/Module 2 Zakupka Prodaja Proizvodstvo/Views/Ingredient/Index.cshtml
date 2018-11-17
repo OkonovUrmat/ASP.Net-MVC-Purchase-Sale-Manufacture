@@ -1,0 +1,44 @@
+﻿@model IEnumerable <Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Ingredient_Gotov_Result>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+          Наименование продукта
+        </th>
+        <th>
+        Количество сырья
+        </th>
+        <th>
+            Необходимо сырья
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Ingredient_Gotov_Result b in ViewBag.Ingredients) {
+    <tr>
+        <td>
+            @b.Product
+        </td>
+        <td>
+           @b.kol_vo
+        </td>
+        <td>
+            @b.name
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=b.Product }) |
+            @Html.ActionLink("Delete", "Delete", new { id=b.Product})
+        </td>
+    </tr>
+}
+
+</table>

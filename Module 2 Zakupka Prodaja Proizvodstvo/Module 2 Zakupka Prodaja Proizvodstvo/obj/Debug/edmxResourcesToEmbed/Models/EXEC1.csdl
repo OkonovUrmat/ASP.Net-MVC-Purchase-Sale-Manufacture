@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SRSModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SRSEntities2" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="Ingredient_Gotov" ReturnType="Collection(SRSModel2.Ingredient_Gotov_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Ingredient_Gotov_Result">
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Product" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="kol_vo" Nullable="true" />
+  </ComplexType>
+</Schema>

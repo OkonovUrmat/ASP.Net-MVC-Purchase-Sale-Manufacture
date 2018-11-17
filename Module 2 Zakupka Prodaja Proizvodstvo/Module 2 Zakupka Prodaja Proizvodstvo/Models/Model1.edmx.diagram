@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="52941dea966f4f51bf315183d4841d96" Name="Diagram1">
+        <EntityTypeShape EntityType="SRSModel.bank" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Bilets" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Budget" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Doljnost" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Edinic_izmer" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Gotov_product" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Ingredient" Width="1.5" PointX="8.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Operacii" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Oplata" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Poluchenie" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Procent" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Prodaj_Product" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Proizvodstvo" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.recept" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Sotrudnik" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Syrie" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Table_1" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Usersa" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Vyplaty" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Zakupka_syrya" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.Zarplata" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRSModel.БД" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="SRSModel.FK_Sotrudnik_Doljnost" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Gotov_product_Edinic_izmer" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Syrie_Edinic_izmer" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Ingredient_Gotov_product" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Prodaj_Product_Gotov_product" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Proizvodstvo_Gotov_product" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Ingredient_Syrie1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Prodaj_Product_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Proizvodstvo_Sotrudnik1" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Zakupka_syrya_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Zarplata_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="SRSModel.FK_Zakupka_syrya_Syrie" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.SyrieVM
+
+@{
+    ViewBag.Title = "Добавление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Сырье</legend>
+
+
+        <p>
+           Имя<br />
+            @Html.EditorFor(model => model.name)
+        </p>
+        <p>
+          Единица измерения <br />
+            @Html.DropDownListFor(model => model.ed_izmer, ViewBag.Edinic_izmer as SelectList)
+        </p>
+        <p>
+            Сумма  <br />
+            @Html.EditorFor(model => model.summa)
+        </p>
+        <p>
+      
+        <p>
+            Количество <br />
+            @Html.EditorFor(model => model.kol_vo)
+        </p>
+
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку", "Index")
+</div>

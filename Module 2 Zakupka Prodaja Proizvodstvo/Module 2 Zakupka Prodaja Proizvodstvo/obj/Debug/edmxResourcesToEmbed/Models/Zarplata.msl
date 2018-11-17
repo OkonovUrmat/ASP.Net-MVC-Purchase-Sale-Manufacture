@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SRSModel3Container" CdmEntityContainer="SRSEntities3">
+    <FunctionImportMapping FunctionImportName="Procent_zarplaty" FunctionName="Хранилище SRSModel3.Procent_zarplaty" />
+  </EntityContainerMapping>
+</Mapping>

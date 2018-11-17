@@ -1,0 +1,38 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.BudgetVM
+
+@{
+    ViewBag.Title = "Бюджет";
+}
+
+<h2>Budget</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+      budg_ID
+        </th>
+        <th>
+     summa_budget
+        </th>
+        <th></th>
+
+        </td>    </tr>
+
+@foreach (Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Budget item in ViewBag.item) {//Выводим ViewBag в цикле таким образом
+    <tr>
+        <td>
+        @item.budg_ID 
+        <td>
+            @item.summa_budget
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.budg_ID  }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

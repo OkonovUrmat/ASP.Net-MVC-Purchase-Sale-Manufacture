@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище SRSModel1Container" CdmEntityContainer="SRSEntities">
+    <FunctionImportMapping FunctionImportName="Ingredient_Gotov" FunctionName="Хранилище SRSModel1.Ingredient_Gotov">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SRSModel1.Ingredient_Gotov_Result">
+          <ScalarProperty Name="gp_ID" ColumnName="gp_ID" />
+          <ScalarProperty Name="produciya" ColumnName="produciya" />
+          <ScalarProperty Name="syrie" ColumnName="syrie" />
+          <ScalarProperty Name="kol_vo" ColumnName="kol_vo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

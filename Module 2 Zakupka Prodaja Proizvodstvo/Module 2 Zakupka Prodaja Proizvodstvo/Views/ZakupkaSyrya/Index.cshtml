@@ -1,0 +1,65 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.ZakupkaSyrya
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form method="get">
+    <div class="form-inline">
+        @*<label class="control-label">Сырье: </label>
+        @Html.DropDownList("syrie", Model.Syriesi as SelectList,
+                    htmlAttributes: new { @class = "form-control" })*@
+
+        <label class="control-label">Сотрудник: </label>
+        @Html.DropDownList("sotrudnik", Model.Sotrudniksi as SelectList,
+                htmlAttributes: new { @class = "form-control" })
+
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Название сырья</th>
+        <th>Количество</th>
+        <th>Сумма</th>
+        <th>Дата</th>
+        <th>Сотрудник</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Zakup_syryas)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.zakup_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Syrie1.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kol_vo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.summa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sotrudnik1.FIO)
+            </td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.zakup_ID })</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = item.zakup_ID })</td>
+
+        </tr>
+
+    }
+
+
+</table>

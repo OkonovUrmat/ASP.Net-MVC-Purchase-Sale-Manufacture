@@ -1,0 +1,35 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.ZarplataVM
+@{
+    ViewBag.Title = "Добавление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Зарплата</legend>
+
+        <p>
+            Сотрудник<br />
+            @Html.DropDownListFor(model => model.id_sotrudnika, ViewBag.Sotrudniks as SelectList)
+        </p>
+
+        <p>
+            Месяц<br />
+            @Html.EditorFor(model => model.mesyac)
+        </p>
+        <p>
+            Год  <br />
+            @Html.EditorFor(model => model.god)
+        </p>
+      
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку", "Index")
+</div>

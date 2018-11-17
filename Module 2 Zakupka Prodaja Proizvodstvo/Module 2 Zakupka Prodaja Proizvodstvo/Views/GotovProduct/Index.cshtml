@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Gotov_product>
+
+@{
+    ViewBag.Title = "GotovProduct";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gp_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ed_izmer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.summa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kol_vo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gp_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edinic_izmer.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.summa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kol_vo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.gp_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.gp_ID  }) |
+            @Html.RouteLink("Ingredient", new { controller="Ingredient",action="Index", id=item.gp_ID})
+        </td>
+    </tr>
+}
+
+</table>

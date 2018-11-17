@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Vyplaty>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           vyplaty_id
+        </th>
+        <th>
+        summa_krdita
+        </th>
+        <th>
+        procent
+        </th>
+        <th>
+         peni
+        </th>
+        <th>
+          data
+        </th>
+        <th>
+       ostatok
+        </th>
+        <th></th>
+    </tr>
+   @foreach(var item in ViewBag.Vyplatys) {
+    <tr>
+        <td>
+            @item.vyplaty_id
+        </td>
+        <td>
+            @item.summa_kredita
+        </td>
+        <td>
+            @item.procent
+        </td>
+        <td>
+            @item.peni
+        </td>
+        <td>
+            @item.data
+        </td>
+        <td>
+            @item.ostatok
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.vyplaty_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.vyplaty_id })
+            @*@Html.RouteLink("Index", new { controller = "Syrie", action = "Index", id = item.data })*@
+        </td>
+    </tr>
+
+}
+
+</table>

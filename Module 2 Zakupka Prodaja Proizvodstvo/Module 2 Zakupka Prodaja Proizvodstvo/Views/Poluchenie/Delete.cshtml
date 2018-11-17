@@ -1,0 +1,72 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Poluchenie
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Poluchenie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.poluchenie_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.poluchenie_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.summa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.summa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.procent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.procent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.peni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.peni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

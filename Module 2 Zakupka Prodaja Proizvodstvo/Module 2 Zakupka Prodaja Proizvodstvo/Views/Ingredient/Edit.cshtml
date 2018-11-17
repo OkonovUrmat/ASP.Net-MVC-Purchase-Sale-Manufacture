@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Редактировать";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.IngredientVM
+<h2>Ингредиент № @Model.ingr_ID</h2>
+@using (Html.BeginForm("Edit", "Ingredient", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.ingr_ID)
+        <p>
+            @Html.LabelFor(m => m.produciya, "Продукт")
+                     <br />
+            @Html.DropDownListFor(m => m.produciya, ViewBag.Gotov_products as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.syrie, "Cырье")
+            <br />
+            @Html.DropDownListFor(m => m.syrie, ViewBag.Syries as SelectList)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.kol_vo, "Количество")
+            <br />
+            @Html.EditorFor(m => m.kol_vo)
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

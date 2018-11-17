@@ -1,0 +1,55 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.Table_1s
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Название Сырья: </label>
+        @Html.DropDownList("syrye", Model.Tables as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+        <input type="submit" value="Фильтр" class="btn btn-default" />
+    </div>
+</form>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Название сырья</th>
+        <th>Единица измерения</th>
+        <th>Сумма</th>
+        <th>Количество</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Table_1si) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.syrie_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ed_izmer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.summa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kol_vo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

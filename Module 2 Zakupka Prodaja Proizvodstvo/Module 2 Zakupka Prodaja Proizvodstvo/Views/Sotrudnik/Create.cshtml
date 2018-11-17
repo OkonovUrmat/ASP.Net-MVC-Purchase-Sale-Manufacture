@@ -1,0 +1,45 @@
+﻿@model Module_2_Zakupka_Prodaja_Proizvodstvo.Models.SotrudnikVM
+
+@{
+    ViewBag.Title = "Добавление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавление</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Сотрудник</legend>
+
+
+        <p>
+            ФИО<br />
+            @Html.EditorFor(model => model.FIO)
+        </p>
+        <p>
+            Должность <br />
+            @Html.DropDownListFor(model => model.doljnost, ViewBag.Doljnosts as SelectList)
+ 
+        </p>
+        <p>
+           Оклад  <br />
+            @Html.EditorFor(model => model.oklad)
+        </p>
+        <p>
+
+        <p>Адресс<br />
+            @Html.EditorFor(model => model.adress)
+        </p>
+        <p>
+        Телефон <br />
+            @Html.EditorFor(model => model.telephone)
+        </p>
+        <p>
+            <input type="submit" value="Добавить" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("К списку", "Index")
+</div>

@@ -1,0 +1,50 @@
+<h3>Выберите страну</h3>
+@Html.DropDownList("State", ViewBag.Proizvodstvos as SelectList, new { id = "state" })
+<h3>Выберите город</h3>
+@Html.DropDownList("City", ViewBag.Gotov_Products as SelectList, new { id = "city" })
+
+@section scripts{
+    <script type="text/javascript">
+    $(function () {
+
+        $('#state').change(function()
+        {
+            // получаем выбранный id
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItems")/' + id,
+                success: function (data) {
+
+                    // заменяем содержимое присланным частичным представлением
+                    $('#city').replaceWith(data);
+                }
+            });
+        });
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+Controller 
+        public ActionResult Index()
+        {
+            int selectedIndex = 1;
+            SelectList states = new SelectList(db.Proizvodstvos, "proizvodstvo_ID", "product", selectedIndex);
+            ViewBag.Proizvodstvos = states;
+            SelectList cities = new SelectList(db.Gotov_Products.Where(c => c.gp_ID == selectedIndex), "gp_ID", "name");
+            ViewBag.Gotov_Products = cities;
+            return View();
+        }
+        public ActionResult GetItems(int id)
+        {
+            return PartialView(db.Gotov_Products.Where(c => c.gp_ID== id).ToList());
+        }

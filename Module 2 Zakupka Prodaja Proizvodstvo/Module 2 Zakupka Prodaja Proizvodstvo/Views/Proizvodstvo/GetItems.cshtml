@@ -1,0 +1,8 @@
+﻿@model  IEnumerable<Module_2_Zakupka_Prodaja_Proizvodstvo.Models.ProizvodstvoVM>
+<select id="city" name="ProizvodstvoVM">
+    @foreach (var item in Model)
+    {
+        <option value="@item.proizvodstvo_ID">@item.product</option>
+    }
+</select>
+
